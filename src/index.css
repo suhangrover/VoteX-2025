@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gradient-start: #1a1a2e;
+  --gradient-end: #4a1d96;
+}
+
+body {
+  @apply bg-[#1a1a2e] text-white min-h-screen overflow-x-hidden;
+}
+
+/* Fix text clipping by increasing line height */
+h1, h2, h3, h4, h5, h6 {
+  @apply leading-[1.2] tracking-normal;
+  padding: 0.05em 0; /* Add slight padding to prevent clipping */
+}
+
+/* Specific fix for large headings */
+.text-4xl, .text-5xl, .text-6xl, .text-7xl {
+  @apply leading-[1.15] tracking-normal;
+  padding: 0.1em 0; /* Additional padding for larger text */
+}
+
+.container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
+}
+
+.party-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.party-card:hover {
+  @apply transform -translate-y-1 shadow-lg shadow-purple-500/20;
+}
+
+/* Navigation Links */
+.nav-link {
+  @apply text-gray-300 hover:text-white transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-purple-400 after:transition-all hover:after:w-full;
+  padding: 0.1em 0; /* Add padding to prevent link text clipping */
+}
+
+.mobile-nav-link {
+  @apply block px-3 py-2 text-gray-300 hover:text-white transition-colors hover:bg-white/5 rounded-lg;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-black/20;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-purple-600/50 rounded-full hover:bg-purple-600;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Form styles */
+.input-field {
+  @apply w-full px-4 py-3 rounded-lg bg-white/10 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/50 transition-all duration-200;
+  line-height: normal; /* Ensure proper line height for inputs */
+}
+
+.btn-primary {
+  @apply px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  line-height: normal; /* Ensure proper line height for buttons */
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors flex items-center justify-center space-x-2;
+  line-height: normal; /* Ensure proper line height for buttons */
+}
+
+/* Section spacing */
+.section {
+  @apply py-16 px-4 sm:px-6 lg:px-8;
+}
+
+/* Content containers */
+.content-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Text containers */
+.text-container {
+  @apply max-w-prose mx-auto;
+}
+
+/* Fix gradient text */
+.bg-gradient-to-r {
+  @apply bg-clip-text leading-normal; /* Add leading-normal to gradient text */
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5; /* Ensure proper line height for clamped text */
+}
+
+/* Fix text alignment in flex containers */
+.flex, .inline-flex {
+  align-items: center;
+}
+
+/* Ensure proper text rendering */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
